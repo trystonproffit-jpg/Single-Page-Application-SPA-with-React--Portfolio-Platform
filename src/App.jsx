@@ -1,9 +1,14 @@
 import { useState } from "react";
 import ProjectList from "./components/ProjectList.jsx";
 import SearchBar from "./components/SearchBar.jsx";
+import ProjectForm from "./components/ProjectForm.jsx";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");  
+  
+  const addProject = (newProject) => {
+    setProjects([...projects, { ...newProject, id: Date.now() }]);
+  };
   
   const [projects, setProjects] = useState([
         { id: 1, title: "Project 1", description: "Project Description"},
@@ -20,6 +25,7 @@ function App() {
 
             <ProjectList projects={filteredProjects} />
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <ProjectForm onAddProject={addProject} />
         </div>
     );
 }

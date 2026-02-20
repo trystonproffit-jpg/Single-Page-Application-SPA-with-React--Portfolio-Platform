@@ -1,10 +1,10 @@
-import ProjectItem from "./ProjectItem";
+import ProjectItem from "./ProjectItem.jsx";
 
-function ProjectList({ projects }) {
+function ProjectList({ projects, onDelete }) {
     return (
         <>
             {projects.map(project => (
-                <ProjectItem key={project.id} project={project} /> 
+                <ProjectItem key={project.id} project={project} onDelete={onDelete} /> 
             ))}
         </>
     );

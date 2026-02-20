@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TextField, Button, Stack } from "@mui/material";
 
 function ProjectForm({ onAddProject }) {
     const [title, setTitle] = useState("");
@@ -6,6 +7,8 @@ function ProjectForm({ onAddProject }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        if (!title.trim()) return;
 
         onAddProject({ title, description });
 
@@ -13,21 +16,35 @@ function ProjectForm({ onAddProject }) {
         setDescription("");
     };
 
-
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
-            <textarea 
-                placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-            <button type="submit">Add</button>
+            <Stack spacing={2}>
+                <TextField
+                    label="Title"
+                    variant="outlined"
+                    fullWidth
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
+
+                <TextField
+                    label="Project Description"
+                    variant="outlined"
+                    multiline
+                    rows={3}
+                    fullWidth
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+
+                <Button
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                >
+                    Add Project
+                </Button>
+            </Stack>
         </form>
     );
 }

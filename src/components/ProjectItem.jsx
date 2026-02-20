@@ -1,5 +1,6 @@
-import { Card, CardContent, IconButton, Typography } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete"
+import { Card, CardContent, IconButton, Typography, Stack, Link } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function ProjectItem({ project, onDelete }) {
     return (
@@ -12,11 +13,21 @@ function ProjectItem({ project, onDelete }) {
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                     {project.description}
                 </Typography>
-                {onDelete && (
-                    <IconButton color="error" onClick={() => onDelete(project.id)}>
-                        <DeleteIcon />
-                    </IconButton>
-                )}
+
+                <Stack direction="row" spacing={1}>
+                    {project.github && (
+                        <Link href={project.github} target="_blank" rel="noopener">
+                            <IconButton color="primary">
+                                <GitHubIcon />
+                            </IconButton>
+                        </Link>
+                    )}
+                    {onDelete && (
+                        <IconButton color="error" onClick={() => onDelete(project.id)}>
+                            <DeleteIcon />
+                        </IconButton>
+                    )}
+                </Stack>
             </CardContent>
         </Card>
     );

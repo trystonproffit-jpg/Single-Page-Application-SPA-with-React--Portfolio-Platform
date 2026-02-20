@@ -4,6 +4,7 @@ import { TextField, Button, Stack } from "@mui/material";
 function ProjectForm({ onAddProject }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [github, setGithub] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,6 +15,7 @@ function ProjectForm({ onAddProject }) {
 
         setTitle("");
         setDescription("");
+        setGithub("");
     };
 
     return (
@@ -35,6 +37,14 @@ function ProjectForm({ onAddProject }) {
                     fullWidth
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                />
+               
+                <TextField
+                    label="GitHub Link"
+                    variant="outlined"
+                    fullWidth
+                    value={github}
+                    onChange={(e) => setGithub(e.target.value)}
                 />
 
                 <Button

@@ -6,8 +6,8 @@ import { Container, Typography, Box, Paper, Divider } from "@mui/material";
 
 function App() {
     const [projects, setProjects] = useState([
-        { id: 1, title: "AI-Powered Chatbot", description: "Developed a conversational AI chatbot using GPT technology, capable of handling customer support queries and providing personalized responses."},
-        { id: 2, title: "Mobile Game Prototype", description: "Created a mobile game prototype in Unity with C#, featuring dynamic levels and an intuitive user interface."}
+        { id: 1, title: "My First Trivia CLI Quiz", description: "I created a CLI Trivia quiz to get more experience in coding!", github: "https://github.com/trystonproffit-jpg/Sum-Lab-Trivia-CLI.git"},
+        { id: 2, title: "A JavaScript Calculator That saves History", description: "A Basic calculator in JavaScript I created to learn some basic JavaScript functions!", github: "https://github.com/trystonproffit-jpg/Lab_1_Calculator.git"}
     ]);   
   
   const [searchTerm, setSearchTerm] = useState("");  
@@ -26,10 +26,39 @@ function App() {
     
     return (      
       <Container maxWidth="md" sx={{ py: 5 }}>
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          Project Showcase!
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mb: 4,
+          }}
+        >
 
+        <Box
+          sx={{
+            px: 3,
+            py: 1,
+            border: "3px solid #4f46e5",
+            borderRadius: "12px",
+            background: "linear-gradient(90deg, #4f46e5, #ec4899)",
+          }}
+        >  
+   
+          <Typography
+          variant="h3" 
+          component="h1" 
+          sx={{
+            fontFamily: "Roboto, sans-serif",
+            fontWeight: "bold",
+            color: "white",
+            textShadow: "2px 2px 5px rgba(0,0,0,0.2)",
+            textAlign: "center",
+              }}
+          >
+            Project Showcase!
+          </Typography>
+        </Box>
+        </Box>
         <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
           <Typography variant="h6" gutterBottom>
             Add Project
